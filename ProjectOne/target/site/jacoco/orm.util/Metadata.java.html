@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Metadata.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProjectOne</a> &gt; <a href="index.source.html" class="el_package">orm.util</a> &gt; <span class="el_source">Metadata.java</span></div><h1>Metadata.java</h1><pre class="source lang-java linenums">package orm.util;
+
+import orm.annotations.Column;
+import orm.annotations.Id;
+
+import java.lang.reflect.Field;
+import java.util.LinkedList;
+import java.util.List;
+
+public class Metadata&lt;T&gt; {
+    private Class&lt;T&gt; clazz;
+    private IdField primaryKeyField;
+    private List&lt;ColumnField&gt; columnFields;
+
+<span class="nc" id="L15">    public Metadata(Class&lt;T&gt; clazz){</span>
+<span class="nc" id="L16">        this.clazz = clazz;</span>
+<span class="nc" id="L17">        this.columnFields = new LinkedList&lt;&gt;();</span>
+<span class="nc" id="L18">    }</span>
+
+    public String getClassName(){
+<span class="nc" id="L21">        return clazz.getName();</span>
+    }
+
+    public String getSimpleClassName(){
+<span class="nc" id="L25">        return clazz.getSimpleName();</span>
+    }
+
+    public IdField getPrimaryKey(){
+<span class="nc" id="L29">        Field[] fields = clazz.getDeclaredFields();</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        for(Field field: fields){</span>
+<span class="nc" id="L31">            Id primaryKey = field.getAnnotation(Id.class);</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">            if(primaryKey != null){</span>
+<span class="nc" id="L33">                return new IdField(field);</span>
+            }
+        }
+<span class="nc" id="L36">        throw new RuntimeException(&quot;Did not find a field annotated with @Id in &quot; + clazz.getName());</span>
+    }
+
+    public List&lt;ColumnField&gt; getColumns(){
+<span class="nc" id="L40">        Field[] fields = clazz.getDeclaredFields();</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        for(Field field : fields){</span>
+<span class="nc" id="L42">            Column column = field.getAnnotation(Column.class);</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">            if(column != null){</span>
+<span class="nc" id="L44">                columnFields.add(new ColumnField(field));</span>
+            }
+        }
+<span class="nc" id="L47">        return columnFields;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

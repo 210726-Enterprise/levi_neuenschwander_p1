@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Customer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProjectOne</a> &gt; <a href="index.source.html" class="el_package">orm.util</a> &gt; <span class="el_source">Customer.java</span></div><h1>Customer.java</h1><pre class="source lang-java linenums">package orm.util;
+
+import orm.annotations.Column;
+import orm.annotations.Entity;
+import orm.annotations.Id;
+
+/**
+ * User class
+ */
+@Entity(tableName = &quot;customer&quot;)
+public class Customer {
+    /**
+     * Instance variables
+     */
+    @Id(columnName = &quot;id&quot;)
+    private int id;
+    @Column(columnName = &quot;fname&quot;)
+    private String fName;
+    @Column(columnName = &quot;lname&quot;)
+    private String lName;
+    @Column(columnName = &quot;username&quot;)
+    private String username;
+    @Column(columnName = &quot;password&quot;)
+    private String password;
+
+<span class="fc" id="L26">    public Customer(){}</span>
+
+    /**
+     * Constructor for a user
+     * @param id database id of the user
+     * @param fName first name of the user
+     * @param lName last name of the user
+     * @param username username of the user
+     * @param password password of the user
+     */
+<span class="fc" id="L36">    public Customer(String fName, String lName, String username, String password){</span>
+<span class="fc" id="L37">        this.fName = fName;</span>
+<span class="fc" id="L38">        this.lName = lName;</span>
+<span class="fc" id="L39">        this.username = username;</span>
+<span class="fc" id="L40">        this.password = password;</span>
+<span class="fc" id="L41">    }</span>
+
+<span class="nc" id="L43">    public Customer(int id, String fName, String lName, String username, String password) {</span>
+<span class="nc" id="L44">        this.id = id;</span>
+<span class="nc" id="L45">        this.fName = fName;</span>
+<span class="nc" id="L46">        this.lName = lName;</span>
+<span class="nc" id="L47">        this.username = username;</span>
+<span class="nc" id="L48">        this.password = password;</span>
+<span class="nc" id="L49">    }</span>
+
+<span class="fc" id="L51">    public void setId(int id){this.id = id;}</span>
+
+    /**
+     * Getter method for the database id of the user
+     * @return database id of the user
+     */
+    public int getId(){
+<span class="fc" id="L58">        return this.id;</span>
+    }
+
+    /**
+     * Getter method for first name of the user
+     * @return first name of the user
+     */
+    public String getFName() {
+<span class="fc" id="L66">        return fName;</span>
+    }
+
+    /**
+     * Setter method for first name of the user
+     * @param fName first name of the user
+     */
+    public void setFName(String fName) {
+<span class="fc" id="L74">        this.fName = fName;</span>
+<span class="fc" id="L75">    }</span>
+
+    /**
+     * Getter method for the last name of the user
+     * @return last name of the user
+     */
+    public String getLName() {
+<span class="fc" id="L82">        return lName;</span>
+    }
+
+    /**
+     * Setter method for the last name of the user
+     * @param lName last name of the user
+     */
+<span class="fc" id="L89">    public void setLName(String lName) {this.lName = lName;}</span>
+
+    @Override
+    public String toString() {
+<span class="fc" id="L93">        return &quot;Customer{&quot; +</span>
+                &quot;id=&quot; + id +
+                &quot;, fName='&quot; + fName + '\'' +
+                &quot;, lName='&quot; + lName + '\'' +
+                &quot;, username='&quot; + username + '\'' +
+                &quot;, password='&quot; + password + '\'' +
+                '}';
+    }
+
+    /**
+     * Getter method for username
+     * @return username of the user
+     */
+    public String getUsername() {
+<span class="fc" id="L107">        return username;</span>
+    }
+
+    /**
+     * Setter method for the username
+     * @param username username of the user
+     */
+    public void setUsername(String username) {
+<span class="fc" id="L115">        this.username = username;</span>
+<span class="fc" id="L116">    }</span>
+
+    /**
+     * Getter method for the password
+     * @return password of the user
+     */
+    public String getPassword() {
+<span class="fc" id="L123">        return password;</span>
+    }
+
+    /**
+     * Setter method for the password
+     * @param password password for the user
+     */
+    public void setPassword(String password) {
+<span class="fc" id="L131">        this.password = password;</span>
+<span class="fc" id="L132">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

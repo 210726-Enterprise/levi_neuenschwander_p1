@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Logging.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProjectOne</a> &gt; <a href="index.source.html" class="el_package">orm.logging</a> &gt; <span class="el_source">Logging.java</span></div><h1>Logging.java</h1><pre class="source lang-java linenums">package orm.logging;
+
+import org.apache.log4j.*;
+
+<span class="nc" id="L5">public class Logging {</span>
+
+<span class="nc" id="L7">        final static Logger logger = Logger.getLogger(Logging.class);</span>
+
+        public static void main(String[] args){
+        /* Log4J Logging Levels - Levels add on to each other
+            TRACE - General use information about the application
+            DEBUG - More specific than trace, used for debugging
+            INFO - Informational messages about the application.
+            WARN - A warning for potential issues in the application
+            ERROR - A more severe set of messages related to errors in the application
+            FATAL - The most severe issues in the application should be logged at this level
+         */
+
+<span class="nc" id="L19">            PatternLayout layout = new PatternLayout(&quot;%n%p - %d - %C{1} - %m&quot;);</span>
+
+<span class="nc" id="L21">            ConsoleAppender consoleAppender = new ConsoleAppender();</span>
+<span class="nc" id="L22">            consoleAppender.setThreshold(Level.DEBUG);</span>
+<span class="nc" id="L23">            consoleAppender.setLayout(layout);</span>
+<span class="nc" id="L24">            consoleAppender.activateOptions();</span>
+
+<span class="nc" id="L26">            FileAppender fileAppender = new FileAppender();</span>
+<span class="nc" id="L27">            fileAppender.setThreshold(Level.WARN);</span>
+<span class="nc" id="L28">            fileAppender.setLayout(layout);</span>
+<span class="nc" id="L29">            fileAppender.setFile(&quot;src/main/logs/issues.txt&quot;);</span>
+<span class="nc" id="L30">            fileAppender.setAppend(false);</span>
+<span class="nc" id="L31">            fileAppender.activateOptions();</span>
+
+        /* Layout patterns
+            %m - print the user supplied message during the logging event
+            %C - print the class that created the logging event HINT: use C{1} -&gt; get the simple name
+            %d - output the date of the logging event
+            %p - output the priority (level) of the logging event
+            %n - new line
+         */
+
+<span class="nc" id="L41">            logger.debug(&quot;This is a debug&quot;);</span>
+<span class="nc" id="L42">            logger.info(&quot;This is some info&quot;);</span>
+<span class="nc" id="L43">            logger.error(&quot;This is an error&quot;);</span>
+
+<span class="nc" id="L45">        }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

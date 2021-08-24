@@ -1,0 +1,6 @@
+orm\annotations\Entity.class
+orm\annotations\Id.class
+orm\util\ConnectionUtil.class
+orm\Driver.class
+orm\annotations\Column.class
+orm\util\OrmManager.class
