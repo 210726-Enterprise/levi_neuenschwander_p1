@@ -19,3 +19,8 @@ This project is a an orm and "webapp" for a customer table with first name, last
 - Java EE Servlet API (v4.0+)
 - PostGreSQL deployed on AWS RDS
 - Git SCM (on GitHub)
+
+## Functionality
+
+- Ability to persist CRUD functionality to a database
+- JDBC abstracted to ORM
