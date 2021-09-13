@@ -11,9 +11,9 @@ This project is a an orm and "webapp" for a customer table with first name, last
 
 ## Tech Stack
 
-Java 8
-JUnit
-Mockito
+[] Java 8
+[] JUnit
+[] Mockito
 Apache Maven
 Jackson library (for JSON marshalling/unmarshalling)
 Java EE Servlet API (v4.0+)
